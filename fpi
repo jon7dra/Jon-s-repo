@@ -1,0 +1,115 @@
+#!/bin/bash
+
+
+
+######################################
+# #FPI (Fedora Post Installation)    #
+# #Auteur: Jon                       #
+# #Site web: https://diagrepaauto.fr #
+# #Contact: jon@diagrepaauto.fr      # 
+######################################
+
+
+
+#Texte affiché par le script
+echo "Bienvenue dans le programme de post installation de fedora."
+echo ""
+echo ""
+echo "Ce script vous installera automatiquement:"
+echo "Les dernières mises à jour disponibles pour votre système."
+echo "Les dépots RPM Fusion libre et non libre."
+echo "Les packets GStreamer et Xine." 
+echo "Transmission."
+echo "Dolphi."
+echo "Terminator."
+echo "Flameshot."
+echo "Gimp."
+echo "Amarok."
+echo "VLC."
+echo "Fritzing"
+echo "Gerbv"
+echo "gEDA PCB"
+echo ""
+echo ""
+
+#Mise à jour du système
+echo "Mise à jour du système."
+dnf -y update
+echo ""
+
+#Installation des dépots RPM Fusion libre et non libre
+echo "Installation des dépôts RPM Fusio libre et non-libre"
+dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+echo ""
+
+#Installation de GStreamer et Xine
+echo "Installation des plugins GStreamer et Xine"
+dnf -y install gstreamer1-libav gstreamer1-plugins-ugly
+dnf -y install  gstreamer-plugins-bad gstreamer-plugins-ugly
+dnf -y install xine-lib.x86_64 xine-plugin.x86_64 xine-lib-extras.x86_64
+echo ""
+
+
+
+#Pour cette partie j'ai décidé de décomposé l'installation de tous les softs afin que vous compreniez l'installation d'une application.
+#Mais nous pouvons aussi regrouper l'installation de tous les softs suivant avec la commande:
+#dnf -y install transmission dolphin terminator flameshot gimp amarok vlc fritzing pcb gerbv
+#Nous aurions aussi pu cumuler les commandes en mettant && entre chaque commande. Par exemple:
+#dnf -y install transmission && dnf -y install dolphin && dnf -y install terminator && dnf -y install flameshot && dnf -y install gimp && dnf -y install amarok && dnf -y install vlc && dnf -y install fritzing.x86_64 && dnf -y install gerbv && dnf -y install pcb
+
+#Installation de Transmission
+echo "Installation de Transmission"
+dnf -y install transmission
+echo ""
+
+#Installation de Dolphin
+echo "Installation de Dolphin"
+dnf -y install dolphin
+echo ""
+
+#Installation de Terminator
+echo "Installation de Terminator"
+dnf -y install terminator
+echo ""
+
+#Installation de Flameshot
+echo "Installation de Flameshot"
+dnf -y install flameshot
+echo ""
+
+#Installation de Gimp
+echo "Installation de Gimp"
+dnf -y install gimp
+echo ""
+
+#Installation de Amarok
+echo "Installation de Amarok"
+dnf -y install amarok
+echo ""
+
+#Installation de VLC
+echo "Installation de VLC"
+dnf -y install vlc
+echo ""
+
+#Installation de Fritzing
+echo "installation de Fritzing"
+dnf -y install fritzing.x86_64
+echo ""
+
+#Installation de Gerbv
+echo "Installation de Gerbv"
+dnf -y install gerbv
+echo ""
+
+#Installation de gEDA PCB
+echo "Installation de gEDA PCB"
+dnf -y install pcb
+echo ""
+
+#Texte affiché par le script
+echo ""
+echo ""
+echo "Post installation terminée! ;)"
+echo "A bientôt sur Diag & Répa Auto @ https://diagrepaauto.fr"
