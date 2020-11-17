@@ -1,0 +1,58 @@
+#!/bin/bash
+
+
+
+######################################
+# #ddtinstall4all (Version Fedora)   #
+# #Auteur: Jon                       #
+# #Site web: https://diagrepaauto.fr #
+# #Contact: jon@diagrepaauto.fr      # 
+######################################
+#
+#
+#ddtinstall4all est un script qui téléchargera et installera pour vous la dernière version de DDT4ALL de cedricp (que je remercie au passage).
+#Vous pourrez trouver le projet DDT4ALL sur le git de cedricp à cette adresse: https://github.com/cedricp/ddt4all
+#
+#Le script vérifiera les mises à jours pour votre système, il installera python dans sa dernière version, téléchargera la dernière version de DDT4ALL sur le Git de cedricp et vous la décompressera.
+#
+#En cas de difficulté, n'hesitez pas à me contacter à l'adresse mail ci-dessus.
+#
+
+
+#Texte affiché par le script
+echo ""
+echo "Démarrage de l'installation de DDT4ALL"
+echo ""
+echo ""
+echo ""
+
+#Mise à jour système
+echo "Recherche de mise à jour pour votre système."
+echo "Merci de patienter..."
+dnf -y update
+echo ""
+echo ""
+
+#Installation de Python
+echo "Installation de Python."
+echo "Merci de patienter..."
+dnf -y install python
+dnf -y install PyQt5
+echo ""
+echo ""
+
+#Téléchargement de DDT4ALL sur GitHub
+echo "Téléchargement de DDT4ALL."
+wget --https-only https://github.com/cedricp/ddt4all/archive/master.zip
+echo ""
+echo ""
+
+#Extraction de DDT4ALL et déplacement dans /home
+echo "Installation de DDT4ALL"
+unzip master.zip
+mv -v ddt4all-master/ /home/
+echo ""
+echo ""
+echo ""
+echo "Installation terminée! ;)"
+echo "A bientôt sur Diag & Répa Auto @ https://diagrepaauto.fr"
